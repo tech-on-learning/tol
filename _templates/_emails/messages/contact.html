@@ -1,0 +1,17 @@
+{% extends "_emails/base.html" %}
+
+{% block content %}
+
+<p> {{ message | linebreaksbr }} </p> 
+<br>
+<br>
+
+<div style="background: #eeeeee; width: 100%; height: 2px;"></div>
+<br>
+<span style='font-weight:normal'> From: </span> {{ name }} 
+<br> 
+<span style='font-weight:normal'> Phone number: </span> {{ phone }} 
+<br> 
+<span style='font-weight:normal'> Email: </span> {{ email }}
+
+{% endblock %}

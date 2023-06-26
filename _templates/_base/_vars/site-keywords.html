@@ -1,0 +1,7 @@
+{% load i18n %}
+{% if request.path == home %}
+Tech On Learning,
+{% elif seo_keywords %}
+{{ seo_keywords }},
+{% endif %}
+{% trans "Tech, Excel" %}

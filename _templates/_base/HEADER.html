@@ -1,0 +1,58 @@
+{% load static %}
+
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as langs %}
+
+<!-- header start -->
+<style>
+    .img-fluid.logo{
+        width: auto;
+        height: 70px;
+    }
+    .nav-item .nav-link.active{
+        color: var(--co);
+    }
+
+    .btn-main.coa{
+        background-color: var(--co-a);
+        border-color: var(--co-a);
+    }
+</style>
+
+<header>
+    <!-- Main Menu Start -->
+    <div class="site-navigation main_menu menu-2" id="mainmenu-area">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    <img src="{% static 'site/media/logo/logo-to.png' %}" alt="Edutim" class="img-fluid logo">
+                </a>
+
+                <!-- Toggler -->
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="fa fa-bars"></span>
+                </button>
+
+                <!-- Collapse -->
+                <div class="collapse navbar-collapse" id="navbarMenu">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="{% url 'home' %}" class="nav-link {% if request.path == home %}active{% endif %}">
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'courses:home' %}" class="nav-link {% if request.path == courses %}active{% endif %}">
+                                Our Courses
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="#" class="btn btn-main btn-small coa" style="margin-left: 20px;"> Join us now  </a>
+                </div> <!-- / .navbar-collapse -->
+            </div> <!-- / .container -->
+        </nav>
+    </div>
+</header>

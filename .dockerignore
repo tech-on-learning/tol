@@ -1,0 +1,88 @@
+# Git
+.git
+.gitignore
+.git/
+
+# Python
+.python
+__pypackages__/
+app/__pycache__/
+app/*/__pycache__/
+app/*/*/__pycache__/
+app/*/*/*/__pycache__/
+app/*/*/*/*/__pycache__/
+
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Docker
+.docker
+
+# Env
+.env
+.envs
+.env/
+.dev/
+.production/
+.prod/
+.prod
+.dev
+.local
+.local/
+venv
+
+# Mac OS
+.DS_Store
+
+# StaticRoot Dirs
+_cdn/
+cdn
+media/
+
+# Github credentials
+LICENSE
+README.md
+
+# Postgresql
+data/
+/data
+data
+/data/

@@ -1,0 +1,114 @@
+{% load static %}
+
+{% load humanize %}
+
+{% url "home" as home %}
+{% url "courses:home" as courses %}
+
+{% url "error400" as error400 %}
+{% url "error403" as error403 %}
+{% url "error404" as error404 %}
+{% url "error500" as error500 %}
+
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en" translate="no" class="html-bg">
+<head>
+
+<!-- Meta Tags -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% include '_base/tags-header.html' %}
+
+<!-- Title -->
+<title>{% include '_base/_vars/site-title.html' %}</title>
+
+<!-- Additional META Tags -->
+<meta name="language" content="English">
+<link rel="canonical" href="{% include '_base/_vars/site-absolute-url.html' %}" />
+
+<!-- % copyrights % -->
+<meta name="copyright" content="&copy; {% now 'Y' %} {% include '_base/_vars/site-name.html' %}">
+<meta name="author" content="{% include '_base/_vars/site-name.html' %}">
+<meta name="application-name" content="{% include '_base/_vars/site-name.html' %}">
+
+<!-- % Bots % -->
+<meta name="robots" content="all">
+<meta name="google" content="notranslate">
+
+<!-- % Content % -->
+<meta name="keywords" content="{% include '_base/_vars/site-keywords.html' %}">
+{% if seo_description is not None %}
+<meta name="description" content="{{ seo_description | truncatechars:160 }}">
+{% endif %}
+
+<!-- Open Graph / Facebook -->
+<meta property="og:site_name"          content="{% include '_base/_vars/site-name.html' %}">
+<meta property="og:type"               content="website">
+<meta property="og:url"                content="{% include '_base/_vars/site-absolute-url.html' %}">
+<meta property="og:title"              content="{% include '_base/_vars/site-title.html' %}">
+<meta property="og:image"              content="{% include '_base/_vars/site-OG-card.html' %}">
+{% if seo_description is not None %}
+<meta property="og:description"        content="{{ seo_description | truncatechars:160 }}">
+{% endif %}
+
+
+<!-- Twitter Card -->
+<meta name="twitter:card"              content="summary_large_image">
+<meta name="twitter:type"          	   content="website">
+<meta name="twitter:url"               content="{% include '_base/_vars/site-absolute-url.html' %}">
+<meta name="twitter:site"          	   content="@akoladcreations">
+<meta name="twitter:creator"           content="@akoladcreations">
+<meta name="twitter:title"             content="{% include '_base/_vars/site-title.html' %}">
+<meta name="twitter:image"             content="{% include '_base/_vars/site-OG-card.html' %}">
+{% if seo_description is not None %}
+<meta property="twitter:description"   content="{{ seo_description | truncatechars:160 }}">
+{% endif %}
+
+<!-- Fav Icons -->
+<link rel="apple-touch-icon" sizes="57x57"      href="{% static 'site/media/fav-ico/apple-icon-57x57.png' %}">
+<link rel="apple-touch-icon" sizes="60x60"      href="{% static 'site/media/fav-ico/apple-icon-60x60.png' %}">
+<link rel="apple-touch-icon" sizes="72x72"      href="{% static 'site/media/fav-ico/apple-icon-72x72.png' %}">
+<link rel="apple-touch-icon" sizes="76x76"      href="{% static 'site/media/fav-ico/apple-icon-76x76.png' %}">
+<link rel="apple-touch-icon" sizes="114x114"    href="{% static 'site/media/fav-ico/apple-icon-114x114.png' %}">
+<link rel="apple-touch-icon" sizes="120x120"    href="{% static 'site/media/fav-ico/apple-icon-120x120.png' %}">
+<link rel="apple-touch-icon" sizes="144x144"    href="{% static 'site/media/fav-ico/apple-icon-144x144.png' %}">
+<link rel="apple-touch-icon" sizes="152x152"    href="{% static 'site/media/fav-ico/apple-icon-152x152.png' %}">
+<link rel="apple-touch-icon" sizes="180x180"    href="{% static 'site/media/fav-ico/apple-icon-180x180.png' %}">
+
+<link rel="icon" type="image/png" sizes="192x192"   href="{% static 'site/media/fav-ico/android-icon-192x192.png' %}">
+<link rel="icon" type="image/png" sizes="32x32"     href="{% static 'site/media/fav-ico/favicon-32x32.png' %}">
+<link rel="icon" type="image/png" sizes="96x96"     href="{% static 'site/media/fav-ico/favicon-96x96.png' %}">
+<link rel="icon" type="image/png" sizes="16x16"     href="{% static 'site/media/fav-ico/favicon-16x16.png' %}">
+<link rel="manifest" href="{% static 'site/media/fav-ico/manifest.json' %}">
+
+<meta name="theme-color" content="#0e483d">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="{% static 'site/media/fav-ico/ms-icon-144x144.png' %}">
+
+<link rel="stylesheet" href="{% static 'site/base/root.css' %}">
+
+</head>
+<body id="top-header">
+
+<!-- ✅ WEBSITE START HERE ✅ -->
+{% include '_base/HEADER.html' %}
+
+{% block content %}
+{% endblock %}
+
+{% include '_base/FOOTER.html' %}
+<!-- Website end -->
+
+<div class="fixed-btm-top">
+	<a href="#top-header" class="js-scroll-trigger scroll-to-top"><i class="fa fa-angle-up"></i></a>
+</div>
+
+<!-- JavaScript -->
+{% include '_base/tags-footer.html' %}
+<script src="{% static 'site/base/root.js' %}"></script>
+</body>
+</html>
