@@ -19,7 +19,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Settings for secret file .env
 from decouple import config, Csv, AutoConfig
 # Setting to auto detect production mode
-config = AutoConfig(search_path='../.env/.tech_website/.env')
+config = AutoConfig(search_path='../.env/.tol_website/.env')
 
 ####################################
 ##  Webapp Security Keys
