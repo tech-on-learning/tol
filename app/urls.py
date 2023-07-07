@@ -16,15 +16,21 @@ admin.site.site_title = 'Tech On Learning Dashboard'
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
 
-    # Core
-    path('', include('core.urls')),
-
-    # Landing Dirs
-    path('', include('company.urls')),
-    path('courses', include('courses.urls')),
+    # Company Dirs
+    path('courses/', include('courses.urls')),
+    # Users
+    path('@', include('users.urls')),
 
     # Text Editor
     path('tinymce/', include('tinymce.urls')),
+    # Hit-count
+    path('hitcount/', include('hitcount.urls', namespace='hitcount')),
+
+    # Root Paths
+    path('', include('company.urls')),
+    path('contact/', include('contact.urls', namespace='contact_url')),
+    # Core
+    path('', include('core.urls')),
 
     # Default Lang
     prefix_default_language=True,

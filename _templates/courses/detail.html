@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load humanize %}
+{% load i18n %}
+
+{% block content %}
+
+<section class="page-wrapper edutim-course-single course-single-style-3">
+    <div class="course-single-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="course-single-header white-text">
+                        <span class="subheading"> {{ page_detail.category.name }} </span>
+                        <h3 class="single-course-title"> {{ page_detail.name }} </h3> 
+                        <p> {{ page_detail.introduction }} </p>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <nav class="course-single-tabs">
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Overview</a>
+                        <a class="nav-item nav-link" id="nav-instructor-tab" data-toggle="tab" href="#nav-instructor" role="tab" aria-controls="nav-contact" aria-selected="false">Instructor</a>
+                    </div>
+                </nav>
+                <div class="tab-content" id="nav-tabContent">
+                    <!-- Overview -->
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <div class="single-course-details">
+                            <div class="sggroup">
+                                <h4 class="course-title">Description</h4>
+                                <div class="course-descrip"><p> {{ page_detail.description | safe }} </p></div>
+                            </div>
+                            {% if page_detail.courses_guide_rel.all %}
+                            <div class="course-widget course-info">
+                                <h4 class="course-title"> What You will Learn? </h4>
+                                <ul style="column-count: 1!important;">
+                                    {% for i in page_detail.courses_guide_rel.all %}
+                                    <li style="line-height: 1.7;">
+                                        <i class="fa fa-check"></i>
+                                        {{ i.name }}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <!-- Mini BIO -->
+                    <div class="tab-pane fade" id="nav-instructor" role="tabpanel" aria-labelledby="nav-instructor-tab">
+                        <div class="course-widget course-info">
+                            <h4 class="course-title">About the instructors</h4>
+                            <div class="instructor-profile">
+                                <div class="profile-img">
+                                    <img src="{{ page_detail.teacher.avatar_thumb_70.url }}" alt="{{ page_detail.teacher.user.username }} - {{ page_detail.teacher.user.get_full_name }} - techonlearning " class="img-fluid">
+                                </div>
+                                <div class="profile-info">
+                                    <h5> 
+                                        {% if page_detail.teacher.user.get_full_name %}
+                                        {{ page_detail.teacher.user.get_full_name }}
+                                        {% else %}
+                                        {{ page_detail.teacher.user.username }}
+                                        {% endif %}
+                                    </h5>
+                                    <span class="tih" style="color: #a2a0a0; font-size: 88%; font-weight: 500; padding-top: 1px;"> {{ page_detail.teacher.title }} </span>
+                                    <p style="padding-top: 8px;"> 
+                                        {{ page_detail.teacher.bio }}
+                                    </p>
+                                    <div class="instructor-courses">
+                                        <span><i class="bi bi-folder"></i> {{ count_teacher_courses }}  Course{% if count_teacher_courses > 1 %}s{% endif %} </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="course-sidebar">
+                    <div class="course-single-thumb">
+                        <img src="{{ page_detail.cover_thumb_small_hd.url }}" alt="{{ page_detail.name }} techonlearning" class="img-fluid w-100">
+
+                        <div class="course-price-wrapper">
+                            <div class="course-price"><h4>Price: <span>HTG {{ page_detail.price | intcomma }}</span> </h4></div>
+                            <p class="text-info"><i class="fa fa-clock mr-2"></i> Only 2 days left at this price </p>
+                            <div class="buy-btn"><a href="{% url 'contact:student' %}" class="btn btn-main btn-block"> Make your reservation</a></div>
+                        </div>
+                    </div>
+
+                    <div class="course-widget course-details-info">
+                        <h4 class="course-title">This Course Includes</h4>
+                        <ul>
+                            <li>
+                                <div class="">
+                                    <span><i class="bi bi-graph-bar"></i>Skill level : </span>
+                                    {{ page_detail.set_level }}
+                                </div>
+                            </li>
+                            <li>
+                                <div class="">
+                                    <span><i class="bi bi-user-ID"></i>Instructor :</span>
+                                    <a class="d-inline-block"> 
+                                        {% if page_detail.teacher.user.get_full_name %}
+                                        {{ page_detail.teacher.user.get_full_name }}
+                                        {% else %}
+                                        {{ page_detail.teacher.user.username }}
+                                        {% endif %}
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="">
+                                    <span><i class="bi bi-flag"></i>Duration :</span>
+                                    2 weeks
+                                </div>
+                            </li>
+                            <li>
+                                <div class="">
+                                    <span><i class="bi bi-paper"></i>Lessons :</span>
+                                    42
+                                </div>
+                            </li>
+                            <li>
+                                <div class="">
+                                    <span><i class="bi bi-forward"></i>Language :</span>
+                                    {{ page_detail.set_language }}
+                                </div>
+                            </li>
+                            <li>
+                                <div class="">
+                                    <span><i class="bi bi-madel"></i>Certificate :</span>
+                                    {{ page_detail.set_certificate }}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {% if page_detail.tags.all %}
+                    <div class="course-widget">
+                        <h4 class="course-title">Tags</h4>
+                        <div class="single-course-tags">
+                            {% for i in page_detail.tags.all %}
+                            <a> {{ i.name }} </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% if related_courses_obj %}
+<section class="section-padding related-course">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="section-heading">
+                    <h4>Related Courses You may Like</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            {% for i in related_courses_obj %}
+            <div class="col-lg-4 col-md-6">
+                {% include '_includes/courses.box-2.html' %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% endblock %}

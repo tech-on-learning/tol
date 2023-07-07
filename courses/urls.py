@@ -6,4 +6,5 @@ app_name = "courses"
 urlpatterns = [
     # Home
     path('', views.index, name="home"),
+    path('<slug:course_slug>', views.detail, name="detail"),
 ]

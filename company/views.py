@@ -12,6 +12,8 @@ from django.core.mail import EmailMessage, EmailMultiAlternatives
 from django.conf import settings
 
 # Import models
+from courses.models import Category, Tags, Courses, Guide
+from users.models import Profile
 
 # Import Forms
 
@@ -27,6 +29,11 @@ from django.utils.translation import gettext as _
 ##############################################
 # HOME
 def index(request):
+    # OBJ / Latest Courses
+    latest_courses_obj = Courses.objects.filter(status='Published').order_by('-created_at').all()[:3]
+    # OBJ / Teachers
+    teacher_obj = Profile.objects.all()[:5]
+
     seo_description = _("We use the power of marketing and communication to bring your project to life")
     seo_keywords = _("graphic designer, digital marketing, haitian designer")
 
@@ -34,6 +41,10 @@ def index(request):
     js_header = True
 
     context = {
+        "latest_courses_obj":latest_courses_obj,
+
+        "teacher_obj":teacher_obj,
+
         "seo_description":seo_description,
         "seo_keywords":seo_keywords,
 

@@ -41,20 +41,20 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # HoneyPot
-    'honeypot',
-
-    # humanize
-    'django.contrib.humanize',
-
-    # ImageKit
+    # Python Apps
     'imagekit',
-
-    # CleanUp
     'django_cleanup.apps.CleanupConfig',
-
     # White noise
     'whitenoise.runserver_nostatic',
+    # humanize
+    'django.contrib.humanize',
+    # Hitcounter
+    'hitcount',
+    'numerize',
+    # HoneyPot
+    'honeypot',
+    # Htmx
+    'django_htmx',
 
     # Text editor
     'tinymce',
@@ -62,6 +62,8 @@ INSTALLED_APPS = [
     # COMPANY
     'company',
     'courses',
+    'contact',
+    'users',
 
     # Core
     'core',

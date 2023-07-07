@@ -1073,7 +1073,7 @@ Popular Courses
 Course Block
 ==================*/
 .course-block {
-  border: 1px solid #e2f4ff;
+  border: 1px solid #dddfe1;
   background: #fff;
   transition: .4s;
   margin-bottom:25px;
@@ -1093,7 +1093,7 @@ Course Block
 }
 
 .course-block .course-footer {
-  border-top: 1px solid #e2f4ff;
+  border-top: 1px solid #dddfe1;
   padding-top: 15px;
   margin-top: 30px;
 }
@@ -2951,7 +2951,7 @@ Feature style
   display: block;
   margin-bottom: 10px;
   text-align: center;
-  border: 2px solid #e2f4ff;
+  border: 2px solid #dddfe1;
   box-shadow: none;
   padding: 50px 20px;
 }
@@ -3116,7 +3116,7 @@ Popular cousr list style2
 }
 
 .popular-course-list2 .course-block {
-  border: 0px solid #e2f4ff;
+  border: 0px solid #dddfe1;
 }
 
 /* ---------------------------------------------
@@ -4740,7 +4740,7 @@ Blog Main
 .blog-item {
   transition: .4s;
   cursor: pointer;
-  border: 1px solid #e2f4ff;
+  border: 1px solid #dddfe1;
   border-radius: 5px;
   margin-bottom: 20px;
 }

@@ -5,6 +5,34 @@
 
 {% block content %}
 
+{% include '_includes/page_header.html' %}
 
+<section class="section-padding course">
+    <div class="container">
+        <div class="row">
+            {% for i in all_courses_obj %}
+            <div class="col-lg-4 col-md-6">
+                {% include '_includes/courses.box-2.html' %}
+            </div>
+            {% empty %}
+            <div style="text-align: center; width: 100%;"><p style="text-align: center; font-weight: 600; font-style: italic;"> No courses available yet... </p></div>
+            {% endfor %}
+        </div>
+
+        {% if count_all_courses_obj > 9 %}
+        <div class="row" style="display: none!important;">
+            <div class="col-lg-12">
+                <nav class="blog-pagination text-center">
+					<ul>
+                        <li class="page-num active" ><a href="#">1</a></li>
+                        <li class="page-num"><a href="#">2</a></li>
+                        <li class="page-num"><a href="#">3</a></li>
+					</ul>
+				</nav>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
 
 {% endblock %}

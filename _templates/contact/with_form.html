@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+{% include '_includes/page_header.html' %}
+
+<section class="contact-form-cos section-padding">
+    <div class="container">
+        <div class="cf_box_ring">
+            <form action="" method="post" class="cf_form">
+                <div class="cf_form_group_flex dis-flex">
+                    <div class="cf_form_group">
+                        <label for="" class="cf_form_group_label"> First Name </label>
+                        <div class="cf_form_group_field">
+                            <input type="text" class="cf_form_group_field_input">
+                        </div>
+                    </div>
+                    <div class="cf_form_group">
+                        <label for="" class="cf_form_group_label"> Last Name </label>
+                        <div class="cf_form_group_field">
+                            <input type="text" class="cf_form_group_field_input">
+                        </div>
+                    </div>
+                </div>
+                <div class="cf_form_group">
+                    <label for="" class="cf_form_group_label"> Email </label>
+                    <div class="cf_form_group_field">
+                        <input type="text" class="cf_form_group_field_input">
+                    </div>
+                </div>
+                <div class="cf_form_group">
+                    <label for="" class="cf_form_group_label"> Message </label>
+                    <div class="cf_form_group_field">
+                        <textarea name="" id="" cols="30" rows="10" class="cf_form_group_field_input msg"></textarea>
+                    </div>
+                </div>
+                <div class="cf_form_group">
+                    <label for="" class="cf_form_group_label"> Who are you? </label>
+                    <div class="cf_form_group_field radio_group">
+                        <div class="radio_group_div">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="cf_form_group_btn">
+                    <button class="cf_form_group_field_button"> Submit </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

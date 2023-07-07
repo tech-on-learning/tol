@@ -1,0 +1,54 @@
+{% load static %}
+{% load i18n %}
+
+<style>
+    .page-header{
+        background: url("") no-repeat;
+    }
+    .page-header.nopb{
+        padding-bottom: 0;
+    }
+</style>
+
+<section class="page-header {% if contact in request.path %}nopb{% endif %}">
+    <div class="container" style="position: relative;">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="page-header-content">
+                    <h1> 
+                        {% if request.path == contact %}
+                            Get in touch
+                        {% elif request.path == contact_student %}
+                            Learn from the best
+                        {% elif request.path == contact_teacher %}
+                            whenever you need it
+                        {% elif request.path == courses %}
+                            Our Courses
+                        {% endif %}
+                    </h1>
+                    {% if contact in request.path %}
+                    <div class="pgh_nav">
+                        <div class="pgh_nav_flex dis-flex">
+                            <a href="{% url 'contact:teacher' %}" class="pgh_nav_link {% if contact_teacher in request.path %} active {% endif %}"> Become a teacher </a>
+                            <a href="{% url 'contact:student' %}" class="pgh_nav_link {% if contact_student in request.path %} active {% endif %}"> Become a student </a>
+                            <a href="{% url 'contact:home' %}" class="pgh_nav_link {% if request.path == contact %} active {% endif %}"> Contact Us </a>
+                        </div>
+                    </div>
+                    {% else %}
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item">
+                            <a href="{% url 'home' %}">Home</a>
+                        </li>
+                        <li class="list-inline-item">/</li>
+                        <li class="list-inline-item">
+                            {% if request.path == courses %}
+                                Courses
+                            {% endif %}
+                        </li>
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

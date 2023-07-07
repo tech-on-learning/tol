@@ -1,0 +1,28 @@
+{% load static %}
+{% load i18n %}
+{% load humanize %}
+
+<div class="team-item">
+    <img src="{{ i.avatar_thumb_profil.url }}" alt="{% if i.user.get_full_name %}{{ i.user.get_full_name }} {% else %} {{ i.user.username }} {% endif %} - Techonlearning" class="img-fluid">
+    <div class="team-info">
+        <h4> {% if i.user.get_full_name %}{{ i.user.get_full_name }} {% else %} {{ i.user.username }} {% endif %} </h4>
+        <p> {{ i.title }} </p>
+
+        {% if i.instagram or i.linkedin or i.linkedin or i.linkedin %}
+        <ul class="team-socials list-inline">
+            {% if i.facebook %}
+            <li class="list-inline-item"><a href="{{ i.facebook }}" target="_blank"><i class="fab fa-facebook-f fb"></i></a></li>
+            {% endif %}
+            {% if i.twitter %}
+            <li class="list-inline-item"><a href="{{ i.twitter }}" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            {% endif %}
+            {% if i.instagram %}
+            <li class="list-inline-item"><a href="{{ i.instagram }}" target="_blank"><i class="fab fa-instagram ig"></i></a></li>
+            {% endif %}
+            {% if i.linkedin %}
+            <li class="list-inline-item"><a href="{{ i.linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            {% endif %}
+        </ul>
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,28 @@
+{% load static %}
+{% load i18n %}
+{% load humanize %}
+
+<div class="course-block">
+    <div class="course-img">
+        <a href="{{ i.get_absolute_url }}"><img src="{{ i.cover_thumb_small.url }}" alt="{{ i.name }} Techonlearning" class="img-fluid"></a>
+        <span class="course-label"> {{ i.set_level }} </span>
+    </div>
+    <div class="course-content nopa">
+        <h4><a href="{{ i.get_absolute_url }}"> {{ i.name }} </a></h4>    
+        <p> {{ i.introduction | truncatechars:90 }} </p>
+        
+        <div class="course-footer d-lg-flex align-items-center justify-content-between">
+            <div class="course-meta" style="width: 56%;">
+                <div class="ti_tiche">
+                    <div class="left">
+                        <img src="{{ i.teacher.avatar_thumb_25.url }}" alt="">
+                    </div>
+                    <div class="right">
+                        <h6 class="n-n"> {% if i.teacher.user.get_full_name %}{{ i.teacher.user.get_full_name }} {% else %} {{ i.teacher.user.username }} {% endif %} </h6>
+                    </div>
+                </div>
+            </div> 
+            <div class="course-price" style="width: 40%;"> HTG {{ i.price | intcomma }} </div> 
+        </div> 
+    </div>
+</div>
