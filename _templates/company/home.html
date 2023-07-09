@@ -14,6 +14,12 @@
     .team-2{
         background-image: url("http://themeturn.com/tf-db/edutim/edutim/assets/images/bg/gray-bg.png");
     }
+    .counter-section:before {
+        background: url("http://themeturn.com/tf-db/edutim/edutim/assets/images/bg/bg-do2.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
 </style>
 
 <!-- Banner Start -->
@@ -271,183 +277,53 @@
 </section>
 {% endif %}
 
+{% if testimonials_obj %}
 <!-- Testimonials -->
 <section class="testimonial section-padding">
     <div class="container">
-        <div class="row justify-content-center align-items-center">
-            <div class="col-lg-4">
-                <div class="section-heading">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section-heading center-heading text-center">
                     <span class="subheading">Testimonials</span>
                     <h3>Learn New Skills to Go Ahead for Your Career</h3>
                 </div>
             </div>
-       
-            <div class="col-lg-8">
-                <div class="testimonials-slides-2 owl-carousel owl-theme owl-loaded owl-drag">
-                    
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="testimonials-slides owl-carousel owl-theme">
 
-                     
+                    {% for i in testimonials_obj %}
+                    <!-- Punaise -->
+                    <div class="review-item">
+                        <div class="client-info">
+                            <i class="bi bi-quote"></i>
+                            <p>{{ i.message | truncatechars:230 }} </p>
+                            <div class="rating">
+                                <a href="#"><i class="fa fa-star"></i></a>
+                                <a href="#"><i class="fa fa-star"></i></a>
+                                <a href="#"><i class="fa fa-star"></i></a>
+                                <a href="#"><i class="fa fa-star"></i></a>
+                                <a href="#"><i class="fa fa-star"></i></a>
+                            </div>
+                        </div>
+                        <div class="client-desc">
+                            <div class="client-img">
+                                <img src="{{ i.avatar_thumb_small.url }}" alt="{{ i.name }} - Techonlearning" class="img-fluid">
+                            </div>
+                            <div class="client-text">
+                                <h4>{{ i.name }} </h4>
+                                <span class="designation">{{ i.title }} </span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
 
-
-                    
-                  <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1110px, 0px, 0px); transition: 0.25s; width: 2590px;"><div class="owl-item cloned" style="width: 360px; margin-right: 10px;"><div class="review-item">
-                        <div class="client-info">
-                            <i class="bi bi-quote"></i>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni eius autem aliquid pariatur rerum. Deserunt, praesentium.
-                             Adipisci, voluptates nihil debitis</p>
-                             <div class="rating">
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                            </div>
-                        </div>
-                        <div class="client-desc">
-                            <div class="client-img">
-                                <img src="http://themeturn.com/tf-db/edutim/edutim/assets/images/clients/test-2.jpg" alt="" class="img-fluid">
-                            </div>
-                            <div class="client-text">
-                                <h4>John Doe</h4>
-                                <span class="designation">Developer</span>
-                            </div>
-                        </div>
-                    </div></div><div class="owl-item cloned" style="width: 360px; margin-right: 10px;"><div class="review-item">
-                        <div class="client-info">
-                            <i class="bi bi-quote"></i>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni eius autem aliquid pariatur rerum. Deserunt, praesentium.
-                             Adipisci, voluptates nihil debitis</p>
-                             <div class="rating">
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                            </div>
-                        </div>
-                        <div class="client-desc">
-                            <div class="client-img">
-                                <img src="http://themeturn.com/tf-db/edutim/edutim/assets/images/clients/test-3.jpg" alt="" class="img-fluid">
-                            </div>
-                            <div class="client-text">
-                                <h4>John Doe</h4>
-                                <span class="designation">Developer</span>
-                            </div>
-                        </div>
-                    </div></div><div class="owl-item" style="width: 360px; margin-right: 10px;"><div class="review-item">
-                        <div class="client-info">
-                            <i class="bi bi-quote"></i>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni eius autem aliquid pariatur rerum. Deserunt, praesentium.
-                             Adipisci, voluptates nihil debitis</p>
-                             <div class="rating">
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                            </div>
-                        </div>
-                        <div class="client-desc">
-                            <div class="client-img">
-                                <img src="http://themeturn.com/tf-db/edutim/edutim/assets/images/clients/test-1.jpg" alt="" class="img-fluid">
-                            </div>
-                            <div class="client-text">
-                                <h4>John Doe</h4>
-                                <span class="designation">Developer</span>
-                            </div>
-                        </div>
-                    </div></div><div class="owl-item active" style="width: 360px; margin-right: 10px;"><div class="review-item">
-                        <div class="client-info">
-                            <i class="bi bi-quote"></i>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni eius autem aliquid pariatur rerum. Deserunt, praesentium.
-                             Adipisci, voluptates nihil debitis</p>
-                             <div class="rating">
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                            </div>
-                        </div>
-                        <div class="client-desc">
-                            <div class="client-img">
-                                <img src="http://themeturn.com/tf-db/edutim/edutim/assets/images/clients/test-2.jpg" alt="" class="img-fluid">
-                            </div>
-                            <div class="client-text">
-                                <h4>John Doe</h4>
-                                <span class="designation">Developer</span>
-                            </div>
-                        </div>
-                    </div></div><div class="owl-item active" style="width: 360px; margin-right: 10px;"><div class="review-item">
-                        <div class="client-info">
-                            <i class="bi bi-quote"></i>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni eius autem aliquid pariatur rerum. Deserunt, praesentium.
-                             Adipisci, voluptates nihil debitis</p>
-                             <div class="rating">
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                            </div>
-                        </div>
-                        <div class="client-desc">
-                            <div class="client-img">
-                                <img src="http://themeturn.com/tf-db/edutim/edutim/assets/images/clients/test-3.jpg" alt="" class="img-fluid">
-                            </div>
-                            <div class="client-text">
-                                <h4>John Doe</h4>
-                                <span class="designation">Developer</span>
-                            </div>
-                        </div>
-                    </div></div><div class="owl-item cloned" style="width: 360px; margin-right: 10px;"><div class="review-item">
-                        <div class="client-info">
-                            <i class="bi bi-quote"></i>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni eius autem aliquid pariatur rerum. Deserunt, praesentium.
-                             Adipisci, voluptates nihil debitis</p>
-                             <div class="rating">
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                            </div>
-                        </div>
-                        <div class="client-desc">
-                            <div class="client-img">
-                                <img src="http://themeturn.com/tf-db/edutim/edutim/assets/images/clients/test-1.jpg" alt="" class="img-fluid">
-                            </div>
-                            <div class="client-text">
-                                <h4>John Doe</h4>
-                                <span class="designation">Developer</span>
-                            </div>
-                        </div>
-                    </div></div><div class="owl-item cloned" style="width: 360px; margin-right: 10px;"><div class="review-item">
-                        <div class="client-info">
-                            <i class="bi bi-quote"></i>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni eius autem aliquid pariatur rerum. Deserunt, praesentium.
-                             Adipisci, voluptates nihil debitis</p>
-                             <div class="rating">
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                                <a href="#"><i class="fa fa-star"></i></a>
-                            </div>
-                        </div>
-                        <div class="client-desc">
-                            <div class="client-img">
-                                <img src="http://themeturn.com/tf-db/edutim/edutim/assets/images/clients/test-2.jpg" alt="" class="img-fluid">
-                            </div>
-                            <div class="client-text">
-                                <h4>John Doe</h4>
-                                <span class="designation">Developer</span>
-                            </div>
-                        </div>
-                    </div></div></div></div><div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><i class="bi bi-arrow-left-rounded"></i></button><button type="button" role="presentation" class="owl-next"><i class="bi bi-arrow-right-rounded"></i></button></div><div class="owl-dots disabled"></div></div>
+                </div>
             </div>
         </div>
     </div>
 </section>
+{% endif %}
 
 {% endblock %}

@@ -3,10 +3,22 @@
 {% load static %}
 {% load i18n %}
 
+{% load honeypot %}
+
 {% block content %}
 
 {% include '_includes/page_header.html' %}
 
+<style>
+    .errF{
+        position: absolute;
+        bottom: -15px;
+
+        font-size: 13px;
+        color: rgb(201, 98, 87);
+        display: block;
+    }
+</style>
 
 <section class="contact-info section-padding">
     <div class="container">
@@ -36,46 +48,58 @@
             </div>
 
             <div class="col-lg-8">
-                <form class="contact__form form-row " method="POST" action="mail.php" id="contactForm">
+                <form class="contact__form form-row" method="POST" action="{% url 'contact:home' %}" id="contactForm">{% csrf_token %}
+                    {% if messages %}
+                    <div  style="padding-bottom: 20px; width: 100%;">
+                        <div class="alert {% for msg in messages %}{% if msg.tags == 'success' %} alert-success {% elif msg.tags == 'error' %} alert-danger {% endif %}{% endfor %} contact__msg" role="alert" style="width: 100%;">
+                            {% for msg in messages %}
+                                {{ msg }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
                     <div class="row">
-                    <div class="col-12">
-                        <div class="alert alert-success contact__msg" style="display: none" role="alert">
-                            Your message was sent successfully.
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                {{ form.first_name }}
+                                {% if form.first_name.errors %}<div class="errF"> <p> {{ form.first_name.errors }} </p> </div>{% endif %}
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                {{ form.last_name }}
+                                {% if form.last_name.errors %}<div class="errF"> <p> {{ form.last_name.errors }} </p> </div>{% endif %}
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                {{ form.email }}
+                                {% if form.email.errors %}<div class="errF"> <p> {{ form.email.errors }} </p> </div>{% endif %}
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                {{ form.subject }}
+                                {% if form.subject.errors %}<div class="errF"> <p> {{ form.subject.errors }} </p> </div>{% endif %}
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                {{ form.message }}
+                                {% if form.message.errors %}<div class="errF"> <p> {{ form.message.errors }} </p> </div>{% endif %}
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" class="form-control" placeholder="Your Name">
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <input type="text" name="email" id="email" class="form-control" placeholder="Email Address">
-                        </div>
-                    </div>
+                    {% render_honeypot_field "check_name" %}
                     <div class="col-lg-12">
-                        <div class="form-group">
-                            <input type="text" name="subject" id="subject" class="form-control" placeholder="Subject">
+                        <div class="mt-4 text-right">
+                            <button class="btn btn-main" type="submit">Send Message <i class="fa fa-angle-right ml-2"></i></button>
                         </div>
                     </div>
-                    
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <textarea id="message" name="message" cols="30" rows="6" class="form-control" placeholder="Your Message"></textarea>    
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-12">
-                    <div class="mt-4 text-right">
-                        <button class="btn btn-main" type="submit">Send Message <i class="fa fa-angle-right ml-2"></i></button>
-                    </div>
-                </div>
-            </form> 
+                </form>
             </div>
         </div>
     </div>

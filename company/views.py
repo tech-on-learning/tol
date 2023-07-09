@@ -14,6 +14,7 @@ from django.conf import settings
 # Import models
 from courses.models import Category, Tags, Courses, Guide
 from users.models import Profile
+from company.models import Testimonials
 
 # Import Forms
 
@@ -33,6 +34,8 @@ def index(request):
     latest_courses_obj = Courses.objects.filter(status='Published').order_by('-created_at').all()[:3]
     # OBJ / Teachers
     teacher_obj = Profile.objects.all()[:5]
+    # OBJ / Testimonials
+    testimonials_obj = Testimonials.objects.order_by('-created_at').all()
 
     seo_description = _("We use the power of marketing and communication to bring your project to life")
     seo_keywords = _("graphic designer, digital marketing, haitian designer")
@@ -44,6 +47,7 @@ def index(request):
         "latest_courses_obj":latest_courses_obj,
 
         "teacher_obj":teacher_obj,
+        "testimonials_obj":testimonials_obj,
 
         "seo_description":seo_description,
         "seo_keywords":seo_keywords,

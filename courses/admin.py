@@ -44,6 +44,7 @@ class CoursesAdmin(admin.ModelAdmin):
     fieldsets = (
         ('UUID', {'fields':('uuid',)}),
         ('Info', {'fields':('name','slug','teacher','category','tags','price',)}),
+        ('Location', {'fields':('location','location_map',)}),
         ('Description', {'fields':('introduction','description',)}),
         ('TimeFrame', {'fields':('start_date','end_date',)}),
         ('Cover picture', {'fields':('cover',)}),

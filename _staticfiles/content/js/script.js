@@ -238,22 +238,22 @@
          Contact Form
   --------------------------------------------- */
 
-  var form = $('.contact__form'),
-      message = $('.contact__msg'),
+  var form = $('REMOVE_THIS___.contact__form'),
+      message = $('REMOVE_THIS___.contact__msg'),
       form_data; // Success function
 
   function done_func(response) {
-    message.fadeIn().removeClass('alert-danger').addClass('alert-success');
+    message.fadeIn().removeClass('REMOVE_THIS___alert-danger').addClass('REMOVE_THIS___alert-success');
     message.text(response);
     setTimeout(function () {
       message.fadeOut();
     }, 2000);
-    form.find('input:not([type="submit"]), textarea').val('');
+    form.find('REMOVE_THIS___input:not([type="submit"]), textarea').val('');
   } // fail function
 
 
   function fail_func(data) {
-    message.fadeIn().removeClass('alert-success').addClass('alert-success');
+    message.fadeIn().removeClass('REMOVE_THIS___alert-success').addClass('REMOVE_THIS___alert-success');
     message.text(data.responseText);
     setTimeout(function () {
       message.fadeOut();
@@ -264,8 +264,8 @@
     e.preventDefault();
     form_data = $(this).serialize();
     $.ajax({
-      type: 'POST',
-      url: form.attr('action'),
+      type: 'REMOVE_THIS___POST',
+      url: form.attr('REMOVE_THIS___action'),
       data: form_data
     }).done(done_func).fail(fail_func);
   });

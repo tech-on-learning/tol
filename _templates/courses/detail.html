@@ -6,15 +6,48 @@
 
 {% block content %}
 
+<style>
+    .course-single-wrapper{
+        background: url("{{ page_detail.cover_thumb_small_hd.url }}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: cover;
+    }
+    .course-single-wrapper::before{
+        background: var(--co-a);
+        opacity: .75;
+    }
+
+    .course-single-wrapper .blue{
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        -ms-backdrop-filter: blur(30px);
+        -moz-backdrop-filter: blur(30px);
+        -o-backdrop-filter: blur(30px);
+    }
+
+    .lmap-in{
+        width: 100%!important;
+        height: 200px!important;
+        background: #eceeec;
+    }
+    .lmap iframe{
+        width: 100%!important;
+        height: 100%!important;
+    }
+</style>
+
 <section class="page-wrapper edutim-course-single course-single-style-3">
     <div class="course-single-wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="course-single-header white-text">
-                        <span class="subheading"> {{ page_detail.category.name }} </span>
-                        <h3 class="single-course-title"> {{ page_detail.name }} </h3> 
-                        <p> {{ page_detail.introduction }} </p>  
+        <div class="blue">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="course-single-header white-text">
+                            <span class="subheading"> {{ page_detail.category.name }} </span>
+                            <h3 class="single-course-title"> {{ page_detail.name }} </h3> 
+                            <p> {{ page_detail.introduction }} </p>  
+                        </div>
                     </div>
                 </div>
             </div>
@@ -118,19 +151,19 @@
                             </li>
                             <li>
                                 <div class="">
-                                    <span><i class="bi bi-flag"></i>Duration :</span>
-                                    2 weeks
+                                    <span><i class="bi bi-calendar"></i>Start :</span>
+                                    {{ page_detail.start_date }}
                                 </div>
                             </li>
                             <li>
                                 <div class="">
-                                    <span><i class="bi bi-paper"></i>Lessons :</span>
-                                    42
+                                    <span><i class="bi bi-calendar"></i>End :</span>
+                                    {{ page_detail.end_date }}
                                 </div>
                             </li>
                             <li>
                                 <div class="">
-                                    <span><i class="bi bi-forward"></i>Language :</span>
+                                    <span><i class="bi bi-sitemap2"></i>Language :</span>
                                     {{ page_detail.set_language }}
                                 </div>
                             </li>
@@ -140,8 +173,28 @@
                                     {{ page_detail.set_certificate }}
                                 </div>
                             </li>
+                            {% if page_detail.location %}
+                            <li>
+                                <div class="" style="line-height: 1.6;">
+                                    <span><i class="bi bi-map-pointer"></i>Location :</span>
+                                    <br>
+                                    <div style="padding-left: 30px;"> 
+                                        {{ page_detail.location }}
+                                    </div>
+                                </div>
+                            </li>
+                            {% endif %}
                         </ul>
                     </div>
+
+                    {% if page_detail.location_map %}
+                    <div class="course-widget">
+                        <h4 class="course-title">Location</h4>
+                        <div class="single-course-tags lmap">
+                            <div class="lmap-in">{{ page_detail.location_map | safe }}</div>
+                        </div>
+                    </div>
+                    {% endif %}
 
                     {% if page_detail.tags.all %}
                     <div class="course-widget">
