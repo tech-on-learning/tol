@@ -32,10 +32,15 @@ from django.utils.translation import gettext as _
 def index(request):
     # OBJ / Latest Courses
     latest_courses_obj = Courses.objects.filter(status='Published').order_by('-created_at').all()[:3]
+    # OBJ / Courses
+    courses_obj = Courses.objects.all()
     # OBJ / Teachers
-    teacher_obj = Profile.objects.all()[:5]
+    teacher_obj = Profile.objects.all()
     # OBJ / Testimonials
     testimonials_obj = Testimonials.objects.order_by('-created_at').all()
+
+    count_teacher_obj = teacher_obj.count()
+    count_courses_obj = courses_obj.count()
 
     seo_description = _("We use the power of marketing and communication to bring your project to life")
     seo_keywords = _("graphic designer, digital marketing, haitian designer")
@@ -48,6 +53,9 @@ def index(request):
 
         "teacher_obj":teacher_obj,
         "testimonials_obj":testimonials_obj,
+
+        "count_teacher_obj":count_teacher_obj,
+        "count_courses_obj":count_courses_obj,
 
         "seo_description":seo_description,
         "seo_keywords":seo_keywords,
