@@ -1,0 +1,29 @@
+{% extends "_emails/base.html" %}
+
+{% block content %}
+
+<p> {{ message | linebreaksbr }} </p> 
+<br>
+<br>
+
+<div style="background: #eeeeee; width: 100%; height: 2px;"></div>
+<br>
+<span style='font-weight:normal'> From: </span> {{ first_name }} {{ last_name }}
+<br> 
+<span style='font-weight:normal'> Email: </span> {{ email }}
+<br> 
+<span style='font-weight:normal'> Course: </span> {{ course }}
+<br> 
+<span style='font-weight:normal'> Preferable Price?: </span> {{ q_price }}
+<br> 
+<span style='font-weight:normal'> Schedule: </span> {{ set_schedule }}
+<br> 
+<span style='font-weight:normal'> Have laptop?: </span> {{ q_laptop }}
+<br> 
+<span style='font-weight:normal'> Wishes: </span> {{ q_wish }}
+<br> 
+<span style='font-weight:normal'> Reference?: </span> {{ q_hearing_us }}
+<br> 
+<span style='font-weight:normal'> Need a certificate?: </span> {{ q_certificate }}
+
+{% endblock %}

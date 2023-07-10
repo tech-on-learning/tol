@@ -3,6 +3,8 @@
 {% load static %}
 {% load i18n %}
 
+{% load honeypot %}
+
 {% block content %}
 
 {% include '_includes/page_header.html' %}
@@ -10,41 +12,36 @@
 <section class="contact-form-cos section-padding">
     <div class="container">
         <div class="cf_box_ring">
-            <form action="" method="post" class="cf_form">
-                <div class="cf_form_group_flex dis-flex">
-                    <div class="cf_form_group">
-                        <label for="" class="cf_form_group_label"> First Name </label>
-                        <div class="cf_form_group_field">
-                            <input type="text" class="cf_form_group_field_input">
+            <form action="" method="post" class="cf_form">{% csrf_token %}
+                {% if messages %}
+                    <div  style="padding-bottom: 20px; width: 100%;">
+                        <div class="alert {% for msg in messages %}{% if msg.tags == 'success' %} alert-success {% elif msg.tags == 'error' %} alert-danger {% endif %}{% endfor %} contact__msg" role="alert" style="width: 100%;">
+                            {% for msg in messages %}
+                                {{ msg }}
+                            {% endfor %}
                         </div>
                     </div>
-                    <div class="cf_form_group">
-                        <label for="" class="cf_form_group_label"> Last Name </label>
-                        <div class="cf_form_group_field">
-                            <input type="text" class="cf_form_group_field_input">
-                        </div>
-                    </div>
-                </div>
+                {% endif %}
+
+                {% for field in form %}
+                <!-- Punaise -->
                 <div class="cf_form_group">
-                    <label for="" class="cf_form_group_label"> Email </label>
+                    <label for="{{ field.id_for_label }}" class="cf_form_group_label"> {{ field.label }} </label>
                     <div class="cf_form_group_field">
-                        <input type="text" class="cf_form_group_field_input">
+                        {{ field }}
+                        {% if field.errors %}<div class="errF">{{ field.errors }}</div>{% endif %}
                     </div>
                 </div>
-                <div class="cf_form_group">
-                    <label for="" class="cf_form_group_label"> Message </label>
-                    <div class="cf_form_group_field">
-                        <textarea name="" id="" cols="30" rows="10" class="cf_form_group_field_input msg"></textarea>
-                    </div>
+                {% endfor %}
+                {% render_honeypot_field "check_name" %}
+
+                <div class="notice_legal">
+                    <p>
+                        P.S. We are not selling your data, your privacy is key to us.
+                    </p>
                 </div>
-                <div class="cf_form_group">
-                    <label for="" class="cf_form_group_label"> Who are you? </label>
-                    <div class="cf_form_group_field radio_group">
-                        <div class="radio_group_div">
-                            
-                        </div>
-                    </div>
-                </div>
+
+                <!-- BTN -->
                 <div class="cf_form_group_btn">
                     <button class="cf_form_group_field_button"> Submit </button>
                 </div>

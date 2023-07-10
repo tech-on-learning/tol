@@ -45,7 +45,7 @@ header{
 
 /* Form */
 .contact-form-cos{
-    padding-top: 50px;
+    padding-top: 10px;
 }
 .contact-form-cos .container{
     width: 700px;
@@ -62,12 +62,12 @@ header{
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 
-.cf_form_group{
-    margin-bottom: 10px;
+.cf_form_group:not(:last-child){
+    margin-bottom: 20px;
 }
 .cf_form_group label.cf_form_group_label{
     display: inline-block;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
     padding-bottom: 0px;
     margin-bottom: 0px;
@@ -80,7 +80,20 @@ header{
 .cf_form_group_field .cf_form_group_field_input{
     display: block;
     width: 100%;
+    padding: 0 20px;
+
     height: 50px;
+    border: 2px solid #eee;
+    color: #444;
+    background: #eee;
+}
+.cf_form_group_field_input.msg{
+    height: 150px;
+    resize: none;
+    padding-top: 10px;
+}
+.cf_form_group_field_input.select{
+    appearance: none;
 }
 
 .cf_form_group_btn{
@@ -93,6 +106,15 @@ header{
 }
 .cf_form_group_btn button:hover{
     background: var(--co-a);
+}
+
+.notice_legal{
+    text-align: center;
+}
+.notice_legal p{
+    color: #c3bfbf;
+    font-size: 14px;
+    font-style: italic;
 }
 
 /*[ COURSES / DETAIL ]
