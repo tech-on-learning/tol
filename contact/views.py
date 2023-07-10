@@ -145,7 +145,7 @@ def student(request):
             html_message    =   render_to_string('_emails/messages/contact_student.html', context_emails)
 
             from_email = f"Tech on Learning (website) <{settings.EMAIL_HOST_USER}>"
-            to = settings.EMAIL_RECIPIENT_LIST.append(course.teacher.user.email)
+            to = settings.EMAIL_RECIPIENT_LIST
 
             send_msg = EmailMultiAlternatives(
                 subject, 
