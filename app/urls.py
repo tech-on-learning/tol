@@ -14,6 +14,10 @@ admin.site.site_header = 'Tech On Learning'
 admin.site.site_title = 'Tech On Learning Dashboard'
 
 urlpatterns = i18n_patterns(
+    # Default Lang
+    prefix_default_language=False,
+)
+urlpatterns += [
     path('admin/', admin.site.urls),
 
     # Company Dirs
@@ -31,10 +35,7 @@ urlpatterns = i18n_patterns(
     path('contact/', include('contact.urls', namespace='contact_url')),
     # Core
     path('', include('core.urls')),
-
-    # Default Lang
-    prefix_default_language=True,
-)
+]
 urlpatterns += [
     re_path(r'^media/(?P<path>.*)$', serve, {
         'document_root': settings.MEDIA_ROOT,
