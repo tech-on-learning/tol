@@ -9,8 +9,8 @@ __pycache__/
 _cdn/
 ._cdn/
 _cdn
-cdn/
-cdn
+# cdn/
+# cdn
 data/
 data
 
