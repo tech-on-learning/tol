@@ -206,7 +206,7 @@ MEDIA_ROOT = '/home/akolumxn/akoladcreations_website_cdn/media/' if not DEBUG el
 ####################################
 ##  Email Engine
 ####################################
-if  DEBUG:
+if not DEBUG:
     EMAIL_USE_SSL=config('EMAIL_USE_SSL', cast=bool)
     EMAIL_USE_TLS=config('EMAIL_USE_TLS', cast=bool)
     EMAIL_BACKEND=config('EMAIL_BACKEND')
@@ -221,7 +221,7 @@ if  DEBUG:
 ####################################
 ##  Security Settings
 ####################################
-if  DEBUG:
+if not DEBUG:
     # HTTPS settings
     SESSION_COOKIE_SECURE=True
     CSRF_COOKIE_SECURE=True

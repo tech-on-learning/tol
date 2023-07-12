@@ -42,8 +42,8 @@ def index(request):
     count_teacher_obj = teacher_obj.count()
     count_courses_obj = courses_obj.count()
 
-    seo_description = _("We use the power of marketing and communication to bring your project to life")
-    seo_keywords = _("graphic designer, digital marketing, haitian designer")
+    seo_description = _("Invest in your future with Tech On Learning and acquire the new skills necessary to take your career to the next level")
+    seo_keywords = _("tech on learning, tech, online courses, excel, powerbi, teachonlearn")
 
     # Website Settings
     js_header = True
