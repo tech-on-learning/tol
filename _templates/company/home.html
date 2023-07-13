@@ -22,30 +22,36 @@
     }
 </style>
 
+{% for i in latest_courses_obj_1st %}
 <!-- Banner Start -->
-<section class="banner-style-8">
+<section class="banner-left banner-6" style="background: rgba(var(--co-rgb), .1);">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-md-12 col-xl-6">
+            <div class="col-md-12 col-lg-6 col-xl-6">
                 <div class="banner-content">
-                    <span class="subheading"> Apprenez de nos professionnels </span>
-                    <h1> Learn new skills to go ahead for your career </h1>
-                    <p> Nous investissons dans le personnel, les innovations technologiques et les infrastructures et avons établi des bureaux régionaux et internationaux. </p>
-                    <a href="{% url 'contact:student' %}" class="btn btn-main">Join For Free</a>  
+                    <span class="subheading"> Latest Course </span>
+                    <h1> {{ i.name }} </h1>
+                    <p> {{ i.introduction | truncatechars:150 }} </p>
+                    <a href="{{ i.get_absolute_url }}" class="btn btn-main"> Learn more <i class="fa fa-angle-right ml-2"></i></a>  
                 </div>
             </div>
 
-            <div class="col-xl-6">
-                <div class="banner-img">
-                    <img src="http://themeturn.com/tf-db/edutim/edutim/assets/images/banner/banner-8.png" alt="" class="img-fluid">
+            <div class="col-lg-6 col-xl-6">
+                <div class="banner-img3">
+                    <div class="img-block">
+                        <img src="{{ i.cover_thumb_small.url }}" alt="{{ i.name }} - Techonlearning" class="img-fluid" style="pointer-events: none;">
+                    </div>
+
+                    <div class="banner-shape-1"></div>
                 </div>
             </div>
         </div> <!-- / .row -->
     </div> <!-- / .container -->
 </section>
+{% endfor %}
 
 <!-- Feature start -->
-<section class="feature-2  mt--100">
+<section class="feature-2 section-padding">
     <div class="container">
         <div class="row no-gutters">
             <div class="col-lg-3 col-md-6">
@@ -97,7 +103,7 @@
 </section>
 
 <!-- About US -->
-<section class="about-section section-padding about-2" id="about">
+<section class="about-section section-padding about-2" style="background: rgba(var(--co-rgb), .1);" id="about">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 col-md-12">

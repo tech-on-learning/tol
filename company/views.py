@@ -32,6 +32,7 @@ from django.utils.translation import gettext as _
 def index(request):
     # OBJ / Latest Courses
     latest_courses_obj = Courses.objects.filter(status='Published').order_by('-created_at').all()[:3]
+    latest_courses_obj_1st = latest_courses_obj[:1]
     # OBJ / Courses
     courses_obj = Courses.objects.all()
     # OBJ / Teachers
@@ -50,6 +51,7 @@ def index(request):
 
     context = {
         "latest_courses_obj":latest_courses_obj,
+        "latest_courses_obj_1st":latest_courses_obj_1st,
 
         "teacher_obj":teacher_obj,
         "testimonials_obj":testimonials_obj,
