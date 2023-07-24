@@ -115,7 +115,7 @@ TEMPLATES = [
 ########################################
 ##  DataBases Credentials // Dev // Prod
 ########################################
-if DEBUG:
+if not DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -206,16 +206,15 @@ MEDIA_ROOT = '/home/benscler/akoladcreations_website_cdn/media/' if not DEBUG el
 ####################################
 ##  Email Engine
 ####################################
-if not DEBUG:
-    EMAIL_USE_SSL=config('EMAIL_USE_SSL', cast=bool)
-    EMAIL_USE_TLS=config('EMAIL_USE_TLS', cast=bool)
-    EMAIL_BACKEND=config('EMAIL_BACKEND')
-    EMAIL_PORT=config('EMAIL_PORT')
-    EMAIL_HOST=config('EMAIL_HOST')
-    EMAIL_HOST_USER=config('EMAIL_HOST_USER')
-    EMAIL_HOST_PASSWORD=config('EMAIL_HOST_PASSWORD')
-    # Custom variables
-    EMAIL_RECIPIENT_LIST = config('EMAIL_RECIPIENT_LIST', cast=Csv())
+EMAIL_USE_SSL=config('EMAIL_USE_SSL', cast=bool)
+EMAIL_USE_TLS=config('EMAIL_USE_TLS', cast=bool)
+EMAIL_BACKEND=config('EMAIL_BACKEND')
+EMAIL_PORT=config('EMAIL_PORT')
+EMAIL_HOST=config('EMAIL_HOST')
+EMAIL_HOST_USER=config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD=config('EMAIL_HOST_PASSWORD')
+# Custom variables
+EMAIL_RECIPIENT_LIST = config('EMAIL_RECIPIENT_LIST', cast=Csv())
 
 
 ####################################
