@@ -115,7 +115,7 @@ TEMPLATES = [
 ########################################
 ##  DataBases Credentials // Dev // Prod
 ########################################
-if DEBUG:
+if not DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -199,14 +199,14 @@ STATICFILES_DIRS = [
     BASE_DIR / '_staticfiles/'
 ]
 
-STATIC_ROOT = '/home/benscler/_tol_cdn/static/' if not DEBUG else BASE_DIR / 'cdn/static/'
-MEDIA_ROOT = '/home/benscler/_tol_cdn/media/' if not DEBUG else BASE_DIR / 'cdn/media/'
+STATIC_ROOT = '/home/benscler/_tol_cdn/static/' if  DEBUG else BASE_DIR / 'cdn/static/'
+MEDIA_ROOT = '/home/benscler/_tol_cdn/media/' if  DEBUG else BASE_DIR / 'cdn/media/'
 
 
 ####################################
 ##  Email Engine
 ####################################
-if not DEBUG:
+if  DEBUG:
     EMAIL_USE_SSL=config('EMAIL_USE_SSL', cast=bool)
     EMAIL_USE_TLS=config('EMAIL_USE_TLS', cast=bool)
     EMAIL_BACKEND=config('EMAIL_BACKEND')
