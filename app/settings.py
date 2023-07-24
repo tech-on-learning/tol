@@ -199,8 +199,8 @@ STATICFILES_DIRS = [
     BASE_DIR / '_staticfiles/'
 ]
 
-STATIC_ROOT = '/home/benscler/_tol_cdn/static/' if not DEBUG else BASE_DIR / 'cdn/static/'
-MEDIA_ROOT = '/home/benscler/_tol_cdn/media/' if not DEBUG else BASE_DIR / 'cdn/media/'
+STATIC_ROOT = '/home/benscler/_tol_cdn/static/' if  DEBUG else BASE_DIR / 'cdn/static/'
+MEDIA_ROOT = '/home/benscler/_tol_cdn/media/' if  DEBUG else BASE_DIR / 'cdn/media/'
 
 
 ####################################
