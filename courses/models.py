@@ -144,7 +144,7 @@ class Courses(models.Model):
     description     =   tinymce_models.HTMLField(null=True, blank=False, verbose_name="Description", help_text="Start writing about this course...")
 
     location        =   models.CharField(max_length=200, null=True, blank=False, verbose_name='Location', unique=True)
-    location_map    =   models.TextField(null=True, blank=False, verbose_name='Location map', unique=True, help_text="Insert the google map iFrame code")
+    location_map    =   models.TextField(max_length=1000, null=True, blank=False, verbose_name='Location map', unique=True, help_text="Insert the google map iFrame code")
 
     price           =   models.IntegerField(null=True, blank=True, verbose_name="Price", help_text="Price in HTG")
 
