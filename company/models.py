@@ -30,7 +30,7 @@ class Testimonials(models.Model):
     name            =   models.CharField(max_length=200, null=True, blank=False, verbose_name='Name', unique=True)
     message         =   models.TextField(null=True, blank=False, verbose_name="Message")
 
-    title           =   models.CharField(max_length=200, null=True, blank=False, verbose_name='Title', unique=True)
+    title           =   models.CharField(max_length=200, null=True, blank=False, verbose_name='Title', unique=False)
 
     # Avatar Picture
     avatar                  =   models.ImageField(upload_to=path_to_avatar, null=True, blank=True, verbose_name='Profil Picture')

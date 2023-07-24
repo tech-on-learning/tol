@@ -41,7 +41,7 @@ STATUS = [
 class Category(models.Model):
 
     # Info
-    name            =   models.CharField(max_length=200, null=True, blank=False, verbose_name='Name', unique=True)
+    name            =   models.CharField(max_length=200, null=True, blank=False, verbose_name='Name', unique=False)
     slug            =   models.SlugField(null=True, blank=False, verbose_name="Slug", unique=True)
 
     code            =   models.CharField(max_length=15, null=True, blank=False, verbose_name='Code', unique=True, help_text="Max 10 characters")
@@ -70,7 +70,7 @@ class Category(models.Model):
 class Tags(models.Model):
 
     # Info
-    name                =   models.CharField(max_length=200, null=True, blank=False, verbose_name='Name', unique=True)
+    name                =   models.CharField(max_length=200, null=True, blank=False, verbose_name='Name', unique=False)
     slug                =   models.SlugField(null=True, blank=False, verbose_name="Slug", unique=True)
 
     # Insights
@@ -133,7 +133,7 @@ class Courses(models.Model):
     uuid            =   models.UUIDField(primary_key=False, unique=True, blank=False, null=True, default=uuid.uuid4, editable=False)
 
     # Info
-    name            =   models.CharField(max_length=300, null=True, blank=False, verbose_name='Name', unique=True)
+    name            =   models.CharField(max_length=300, null=True, blank=False, verbose_name='Name', unique=False)
     slug            =   models.SlugField(null=True, blank=False, verbose_name="Slug", unique=True)
 
     teacher         =   models.ForeignKey(Profile, related_name='courses_teacher_rel', on_delete=models.CASCADE, null=True, blank=False, verbose_name='Teacher')
@@ -205,7 +205,7 @@ class Guide(models.Model):
     course           =   models.ForeignKey(Courses, related_name='courses_guide_rel', on_delete=models.SET_NULL, null=True, blank=False, verbose_name='Course')
 
     # Info
-    name                =   models.CharField(max_length=400, null=True, blank=False, verbose_name='Guide', unique=True, help_text="What people will learn in this course")
+    name                =   models.TextField(null=True, blank=True, verbose_name="Guide", help_text="What people will learn in this course")
 
     class Meta:
         verbose_name = 'Guide'
