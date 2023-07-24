@@ -9,10 +9,11 @@ __pycache__/
 _cdn/
 ._cdn/
 _cdn
-# cdn/
-# cdn
+cdn/
+cdn
 data/
 data
+db.sqlite3
 
 # C extensions
 *.so
